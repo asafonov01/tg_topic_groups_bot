@@ -1,0 +1,16 @@
+services:
+  bot:
+    build: .
+    volumes:
+      - .:/cc_event_bot
+
+    environment:
+      PYTHONUNBUFFERED: 1
+      TZ: Europe/Moscow
+
+    logging:
+      options:
+        max-size: 50m
+
+    command: sh -c "python3 main.py"
+    restart: unless-stopped
